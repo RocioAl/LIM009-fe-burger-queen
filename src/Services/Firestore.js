@@ -1,6 +1,4 @@
-
-
-  import db from '../Services/FirestoreConfig';
+import db from '../Services/FirestoreConfig';
 
 export const getBreakfast=(id)=>{
     let docRef=db.collection("breakfast");
@@ -19,7 +17,6 @@ export const getBreakfast=(id)=>{
        return alert(item.data().item);
   }) })})
   }
-  
 
   export const getHamburger1=(id)=>{
     let docRef=db.collection("hamburger1");
@@ -48,8 +45,6 @@ export const getBreakfast=(id)=>{
   }) })})
   }
 
-
-  
   export const getExtra2=(id)=>{
     let docRef=db.collection("extra2");
         docRef.get().then((snapShots)=>{
