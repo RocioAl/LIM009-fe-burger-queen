@@ -12,3 +12,4 @@ firebase.initializeApp(config);
 let db=firebase.firestore();
 
 export default db ;
+//laboratoria
