@@ -8,7 +8,7 @@ export default class Waiter extends Component{
       
 constructor() {
   super();
-    this.state = { items1:[], items2:[],filteredProducts: [], items3:[], items4:[], huevo:[], queso:[], cartItems:[], checked: false, checkeda: false, checkedas: false, opciones: false, client: '', date: Date(), status: 'Pendiente' };
+    this.state = { items1:[], items2:[], items3:[], items4:[], huevo:[], queso:[], cartItems:[], checked: false, checkeda: false, checkedas: false, opciones: false, client: '', date: Date(), status: 'Pendiente' };
     this.handleAddToCart=this.handleAddToCart.bind(this);
     this.handleRemoveFromCart=this.handleRemoveFromCart.bind(this);
     this.handleAddTo=this.handleAddTo.bind(this);
@@ -24,71 +24,71 @@ db.collection('breakfast').get().then((snapShots)=>{
 
 db.collection('lunch').get().then((snapShots)=>{
   this.setState({
-    items2:snapShots.docs.map(doc=>{
+  items2:snapShots.docs.map(doc=>{
     return{id:doc.id,data:doc.data()}
-}) })});
+    }) })});
     
-db.collection('hamburger1').get().then((snapShots)=>{
-  this.setState({
-    items3:snapShots.docs.map(doc=>{
-    return{id:doc.id,data:doc.data()}
-}) })});
+    db.collection('hamburger1').get().then((snapShots)=>{
+      this.setState({
+      items3:snapShots.docs.map(doc=>{
+        return{id:doc.id,data:doc.data()}
+        }) })});
         
-db.collection('hamburdoble').get().then((snapShots)=>{
-  this.setState({
-    items4:snapShots.docs.map(doc=>{
-    return{id:doc.id,data:doc.data()}
-}) })});
+        db.collection('hamburdoble').get().then((snapShots)=>{
+          this.setState({
+            items4:snapShots.docs.map(doc=>{
+              return{id:doc.id,data:doc.data()}
+            }) })});
             
-db.collection('extra1').get().then((snapShots)=>{
-  this.setState({
-     huevo:snapShots.docs.map(doc=>{
-     return{id:doc.id,data:doc.data()}
-}) })});
+            db.collection('extra1').get().then((snapShots)=>{
+              this.setState({
+                huevo:snapShots.docs.map(doc=>{
+                  return{id:doc.id,data:doc.data()}
+                }) })});
                 
-db.collection('extra2').get().then((snapShots)=>{
-  this.setState({ 
-     queso:snapShots.docs.map(doc=>{
-     return{id:doc.id,data:doc.data()}
-}) })});
-}
+                db.collection('extra2').get().then((snapShots)=>{
+                  this.setState({
+                    queso:snapShots.docs.map(doc=>{
+                      return{id:doc.id,data:doc.data()}
+                    }) })});
+                  }
 
 handleAddToCart = (e, product) => {
-  this.setState(state => {
-     const cartItems = state.cartItems;
-     let productAlreadyInCart = false;
-     cartItems.forEach(cp => {
-     if (cp.id === product.id) {
-         cp.count += 1;
-        productAlreadyInCart = true;
-     }
-     });
-     if (!productAlreadyInCart) {
-        cartItems.push({ ...product, count: 1 });
-     }
-     return { cartItems: cartItems };
-     });
-}
+        this.setState(state => {
+          const cartItems = state.cartItems;
+          let productAlreadyInCart = false;
+          cartItems.forEach(cp => {
+            if (cp.id === product.id) {
+              cp.count += 1;
+              productAlreadyInCart = true;
+            }
+          });
+          if (!productAlreadyInCart) {
+            cartItems.push({ ...product, count: 1 });
+          }
+          return { cartItems: cartItems };
+        });
+      }
       
 handleRemoveFromCart = (e, product) => {
   this.setState(state => {
     const cartItems = state.cartItems.filter(a => a.id !== product.id);
     return { cartItems: cartItems };
-  })
+    })
 }
 
 handleAddTo = (e, product) => {
   this.setState(state => {
     const cartItems = state.cartItems;
     let productAlreadyInCart = false;
-  cartItems.forEach(cp => {
-    if (cp.id === product.id) {
+    cartItems.forEach(cp => {
+      if (cp.id === product.id) {
         cp.count --;
         productAlreadyInCart = true;
-    }
-  })
+      }
+    })
     if (!productAlreadyInCart) {
-        cartItems.push({ ...product, count: 1 });
+      cartItems.push({ ...product, count: 1 });
     }
     return { cartItems: cartItems };
   })
@@ -173,61 +173,61 @@ render(){
                   <div className="card">
                     <div key={key}>
                       <img className="cardImg" src={item.data.img} alt="Almuerzo"/> 
-                        <div className="title">
-                         <div onClick={()=>getLunch(item.data.item)}>{item.data.item}</div>
-                          <div>{util.formatCurrency(item.data.price)}</div>
-                           <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
+                      <div className="title">
+                        <div onClick={()=>getLunch(item.data.item)}>{item.data.item}</div>
+                        <div>{util.formatCurrency(item.data.price)}</div>
+                      <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
                     </div> 
                   </div> 
                 </div>   
               </div> 
-            </div>
+              </div>
           ) ):null}</p>,
           <p>
             <p><button className="button1" onClick={(e) => this.handleChange(true)}>Hamburguesa Simple</button></p>
             <div id="left-column">
             {items3 && items3 !==undefined ? items3.map((item ,key)=>(
             <div className="row">
-             <div className="column">
+            <div className="column">
               <div className="card">
-                {this.state.checked ? (
+                  {this.state.checked ? (
                   <div key={key}>
-                   <img className="cardImg" src={item.data.img} alt="Almuerzo"/>
+                    <img className="cardImg" src={item.data.img} alt="Almuerzo"/>
                     <div className="title">
-                     <div onClick={()=>getHamburger1(item.data.item)}>{item.data.item} </div>
-                      <div>{util.formatCurrency(item.data.price)}</div>
-                       <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button><hr/>
-                      </div>
-                       <button className="button" onClick={() => this.handleOpciones(true)}>Opciones</button>
-                       {this.state.opciones? (
-                        <div div className="card">
+                    <div onClick={()=>getHamburger1(item.data.item)}>{item.data.item} </div>
+                    <div>{util.formatCurrency(item.data.price)}</div>
+                    <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button><hr/>
+                    </div>
+                      <button className="button" onClick={() => this.handleOpciones(true)}>Opciones</button>
+                      {this.state.opciones? (
+                      <div div className="card">
                       {huevo && huevo !==undefined ? huevo.map((item ,key)=>(
                       <div key={key}>
                         <img className="cardImg" src={item.data.img} alt="almuerzo"/>
                         <div className="display" onClick={()=>getExtra1(item.data.item)}>{item.data.item}</div>
-                          <div className="display">{util.formatCurrency(item.data.price)}</div>
-                           <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
-                          </div>
+                        <div className="display">{util.formatCurrency(item.data.price)}</div>
+                        <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
+                        </div>
                         ) ):null}
                         {queso && queso !==undefined ? queso.map((item ,key)=>(
                         <div key={key}>
                           <img className="cardImg" src={item.data.img} alt="almuerzo"/>
                           <div className="display" onClick={()=>getExtra2(item.data.item)}id="almuerzo">{item.data.item} </div>
-                            <div className="display">{util.formatCurrency(item.data.price)}</div>
-                             <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
-                            </div>
-                         ) ):null}
+                          <div className="display">{util.formatCurrency(item.data.price)}</div>
+                          <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
                           </div>
-                        ) : (
-                        <div/>
-                        )}
-                      </div>
-                        ) :null}
-                     </div>
-                    </div>
-                  </div>
-                        ) ):null}
-                </div>
+                          ) ):null}
+                          </div>
+                          ) : (
+                          <div/>
+                          )}
+                          </div>
+                          ) :null}
+                          </div>
+                          </div>
+                          </div>
+                          ) ):null}
+                          </div>
                           <button className="button1" onClick={(e) => this.handleChangs(true)}>Hamburguesa Doble</button>
                           <div id="left-column">
                           {items4 && items4 !==undefined ? items4.map((item ,key)=>(
@@ -241,63 +241,63 @@ render(){
                                 <div onClick={()=>getHamburger2(item.data.item)} id="almuerzo">{item.data.item}</div>
                                 <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button><hr/>
                                 </div>
-                                <button className="button" onClick={() => this.handleOpciones(true)}>Opciones</button>
+                                  <button className="button" onClick={() => this.handleOpciones(true)}>Opciones</button>
                                   {this.state.opciones? (
                                   <div>
-                                   {huevo && huevo !==undefined ? huevo.map((item ,key)=>(
-                                    <div key={key}>
-                                     <img className="cardImg" src={item.data.img} alt="almuerzo"/>
-                                      <div className="display" onClick={()=>getExtra1(item.data.item)}id="almuerzo">{item.data.item}</div>
-                                      <div className="display">{util.formatCurrency(item.data.price)}</div>
-                                      <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
+                                  {huevo && huevo !==undefined ? huevo.map((item ,key)=>(
+                                  <div key={key}>
+                                    <img className="cardImg" src={item.data.img} alt="almuerzo"/>
+                                    <div className="display" onClick={()=>getExtra1(item.data.item)}id="almuerzo">{item.data.item}</div>
+                                    <div className="display">{util.formatCurrency(item.data.price)}</div>
+                                    <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
                                     </div>
                                     ) ):null}
                                     {queso && queso !==undefined ? queso.map((item ,key)=>(
                                     <div key={key}>
                                       <img className="cardImg" src={item.data.img} alt="almuerzo"/>
-                                        <div className="display" onClick={()=>getExtra2(item.data.item)}id="almuerzo">{item.data.item}</div>
-                                         <div className="display">{util.formatCurrency(item.data.price)}</div>
-                                           <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
-                                         </div>
-                                    ) ):null}
-                                        </div>
-                                    ) : (
-                                       <div/>
-                                    )}
-                                     </div>
-                                ) :null}
-                                    </div>
-                                  </div>
-                                </div>
-                      ) ):null}
-                    </div>
-                  </p>,
-                      <p>
-                      </p>
-                    ]
-         ) : (
-            <p>
-         {items1 && items1 !==undefined ? items1.map((item ,key)=>(
-            <div className="row">
-              <div className="column">
-                 <div className="card">
-                   <div key={key}>
-                     <img className="cardImg" src={item.data.img} alt="Desayuno"/>
-                        <div className="title">
-                          <div onClick={()=>getBreakfast(item.data.item)}>{item.data.item}</div>
-                            <div className="display">{util.formatCurrency(item.data.price)}</div>
-                              <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-             </div>
-          ) ):null}</p>
-          )}
-        </div>
-      </div>
-    </div>
-  </div>
- )
-}
-}
+                                      <div className="display" onClick={()=>getExtra2(item.data.item)}id="almuerzo">{item.data.item}</div>
+                                      <div className="display">{util.formatCurrency(item.data.price)}</div>
+                                      <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
+                                      </div>
+                                      ) ):null}
+                                      </div>
+                                      ) : (
+                                      <div/>
+                                      )}
+                                      </div>
+                                      ) :null}
+                                      </div>
+                                      </div>
+                                      </div>
+                                      ) ):null}
+                                      </div>
+                                      </p>,
+                                      <p>
+                                      </p>
+                                      ]
+                                      ) : (
+                                      <p>
+                                      {items1 && items1 !==undefined ? items1.map((item ,key)=>(
+                                      <div className="row">
+                                        <div className="column">
+                                          <div className="card">
+                                            <div key={key}>
+                                              <img className="cardImg" src={item.data.img} alt="Desayuno"/>
+                                              <div className="title">
+                                                <div onClick={()=>getBreakfast(item.data.item)}>{item.data.item}</div>
+                                                <div className="display">{util.formatCurrency(item.data.price)}</div>
+                                                <button className="button" onClick={(e)=>this.handleAddToCart(e, item)}>{item.data.item} ${item.data.price}</button>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                ) ):null}</p>
+                                                )}
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                )
+                                              }
+                                            }
