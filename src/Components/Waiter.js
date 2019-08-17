@@ -127,7 +127,7 @@ addUser = e => {
   });  
   this.setState({
       cartItems: [],
-      client: 'Name',
+      client: '',
       date: Date(),
       status: 'Pendiente',
   });
