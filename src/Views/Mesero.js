@@ -13,4 +13,3 @@ class Mesero extends Component {
 
 export default Mesero;
 
-< div ></div >
