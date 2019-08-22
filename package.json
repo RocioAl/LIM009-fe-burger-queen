@@ -2,7 +2,7 @@
   "name": "lim009-fe-burger-queen",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daianatk.github.io/LIM009-fe-burger-queen/",
+  "homepage": "https://rocioal.github.io/LIM009-fe-burger-queen",
   "dependencies": {
     "firebase": "^6.3.5",
     "react": "^16.8.6",
