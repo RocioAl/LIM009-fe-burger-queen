@@ -4,12 +4,12 @@ class Home extends Component {
   render() {
     return (
       <div>
-            <Waiter/>
+        <Waiter />
       </div>
     );
   }
 }
- 
+
 export default Home;
 
 
