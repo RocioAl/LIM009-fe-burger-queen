@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/LIM009-fe-burger-queen/static/css/main.d2598d18.chunk.css",
+    "main.js": "/LIM009-fe-burger-queen/static/js/main.0c753b48.chunk.js",
+    "main.js.map": "/LIM009-fe-burger-queen/static/js/main.0c753b48.chunk.js.map",
+    "runtime~main.js": "/LIM009-fe-burger-queen/static/js/runtime~main.63907d42.js",
+    "runtime~main.js.map": "/LIM009-fe-burger-queen/static/js/runtime~main.63907d42.js.map",
+    "static/js/2.20f7965c.chunk.js": "/LIM009-fe-burger-queen/static/js/2.20f7965c.chunk.js",
+    "static/js/2.20f7965c.chunk.js.map": "/LIM009-fe-burger-queen/static/js/2.20f7965c.chunk.js.map",
+    "index.html": "/LIM009-fe-burger-queen/index.html",
+    "precache-manifest.2a74630a7fb5f5c735ba3a86db54f592.js": "/LIM009-fe-burger-queen/precache-manifest.2a74630a7fb5f5c735ba3a86db54f592.js",
+    "service-worker.js": "/LIM009-fe-burger-queen/service-worker.js",
+    "static/css/main.d2598d18.chunk.css.map": "/LIM009-fe-burger-queen/static/css/main.d2598d18.chunk.css.map"
+  }
+}
