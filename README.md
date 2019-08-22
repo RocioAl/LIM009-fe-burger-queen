@@ -32,6 +32,8 @@ Un pequeño restaurante de hamburguesas, que está creciendo, necesita una
 interfaz en la que puedan tomar pedidos usando una _tablet_, y enviarlos
 a la cocina para que se preparen ordenada y eficientemente (a través de un
   _backend_ del que nos darán detalles más adelante).
+  
+![1](https://user-images.githubusercontent.com/47761211/63555735-b1cdac80-c507-11e9-87ae-167c40fd96fb.png)
 
 ![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
 
